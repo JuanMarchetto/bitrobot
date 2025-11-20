@@ -1,0 +1,196 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  button,
+  input,
+  select,
+  textarea {
+    @apply appearance-none bg-transparent border-0 outline-none;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --caption-large-font-family: "PP NeueBit", Helvetica;
+  --caption-large-font-size: 20px;
+  --caption-large-font-style: normal;
+  --caption-large-font-weight: 700;
+  --caption-large-letter-spacing: 0px;
+  --caption-large-line-height: normal;
+  --caption-medium-font-family: "PP NeueBit", Helvetica;
+  --caption-medium-font-size: 16px;
+  --caption-medium-font-style: normal;
+  --caption-medium-font-weight: 700;
+  --caption-medium-letter-spacing: 0px;
+  --caption-medium-line-height: normal;
+  --caption-small-font-family: "PP NeueBit", Helvetica;
+  --caption-small-font-size: 14px;
+  --caption-small-font-style: normal;
+  --caption-small-font-weight: 700;
+  --caption-small-letter-spacing: 0px;
+  --caption-small-line-height: normal;
+  --gold-100: rgba(254, 249, 230, 1);
+  --goldprimary: rgba(236, 185, 0, 1);
+  --gray: rgba(184, 184, 184, 1);
+  --gray-2: rgba(122, 122, 122, 1);
+  --gray-fill: rgba(246, 246, 246, 1);
+  --heading-small-font-family: "Aeonik", Helvetica;
+  --heading-small-font-size: 24px;
+  --heading-small-font-style: normal;
+  --heading-small-font-weight: 500;
+  --heading-small-letter-spacing: 0px;
+  --heading-small-line-height: normal;
+  --label-medium-font-family: "Aeonik", Helvetica;
+  --label-medium-font-size: 16px;
+  --label-medium-font-style: normal;
+  --label-medium-font-weight: 500;
+  --label-medium-letter-spacing: 0px;
+  --label-medium-line-height: normal;
+  --label-small-font-family: "Aeonik", Helvetica;
+  --label-small-font-size: 14px;
+  --label-small-font-style: normal;
+  --label-small-font-weight: 500;
+  --label-small-letter-spacing: -0.56px;
+  --label-small-line-height: normal;
+  --label-x-small-font-family: "Aeonik", Helvetica;
+  --label-x-small-font-size: 10px;
+  --label-x-small-font-style: normal;
+  --label-x-small-font-weight: 500;
+  --label-x-small-letter-spacing: 0px;
+  --label-x-small-line-height: normal;
+  --paragraph-medium-font-family: "Aeonik", Helvetica;
+  --paragraph-medium-font-size: 14px;
+  --paragraph-medium-font-style: normal;
+  --paragraph-medium-font-weight: 500;
+  --paragraph-medium-letter-spacing: 0px;
+  --paragraph-medium-line-height: normal;
+  --paragraph-small-font-family: "Aeonik", Helvetica;
+  --paragraph-small-font-size: 12px;
+  --paragraph-small-font-style: normal;
+  --paragraph-small-font-weight: 500;
+  --paragraph-small-letter-spacing: 0px;
+  --paragraph-small-line-height: normal;
+  --positive: rgba(0, 195, 58, 1);
+  --primary: rgba(93, 75, 255, 1);
+  --shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
+  --shadow-1: 0px 1px 8px 0px rgba(0, 0, 0, 0.1);
+  --stroke: rgba(238, 236, 254, 1);
+  --white: rgba(254, 254, 254, 1);
+}
+
+:root {
+  --animate-spin: spin 1s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 1s var(--animation-delay, 0s) ease forwards;
+}
+
+.animate-marquee {
+  animation: marquee var(--duration) infinite linear;
+}
+
+.animate-marquee-vertical {
+  animation: marquee-vertical var(--duration) linear infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 8s infinite;
+}
+
+.animate-spin {
+  animation: var(--animate-spin);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes image-glow {
+  0% {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.74, 0.25, 0.76, 1);
+  }
+
+  10% {
+    opacity: 0.7;
+    animation-timing-function: cubic-bezier(0.12, 0.01, 0.08, 0.99);
+  }
+
+  to {
+    opacity: 0.4;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  0%,
+  90%,
+  to {
+    background-position: calc(-100% - var(--shimmer-width)) 0;
+  }
+
+  30%,
+  60% {
+    background-position: calc(100% + var(--shimmer-width)) 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+  }
+}
+
+@keyframes marquee-vertical {
+  0% {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+  }
+}
