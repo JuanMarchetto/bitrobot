@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { carouselSlides, carouselIndicators } from "../../constants";
+import { SectionHeader } from "../UI/SectionHeader";
+import { typography } from "../../utils/classNames";
 
 export const DiscoverCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -19,13 +21,9 @@ export const DiscoverCarousel = () => {
   return (
     <section className="flex flex-col items-start gap-4 lg:gap-6 relative self-stretch w-full flex-[0_0_auto] min-w-0 max-w-full">
       <header className="inline-flex flex-col items-start gap-4 relative flex-[0_0_auto]">
-        <div className="inline-flex items-center justify-center gap-2 px-3 py-2 relative flex-[0_0_auto] bg-[#eeecfe] rounded-lg shadow-shadow-1">
-          <span className="items-center justify-center w-fit mt-[-1.00px] font-caption-medium font-[number:var(--caption-medium-font-weight)] text-[#5d4bff] text-[length:var(--caption-medium-font-size)] tracking-[var(--caption-medium-letter-spacing)] leading-[var(--caption-medium-line-height)] whitespace-nowrap relative flex [font-style:var(--caption-medium-font-style)]">
-            DISCOVER
-          </span>
-        </div>
+        <SectionHeader label="DISCOVER" />
 
-        <h1 className="relative flex items-center justify-center w-fit font-heading-small font-[number:var(--heading-small-font-weight)] text-[#5d4bff] text-[length:var(--heading-small-font-size)] tracking-[var(--heading-small-letter-spacing)] leading-[var(--heading-small-line-height)] [font-style:var(--heading-small-font-style)]">
+        <h1 className={`relative flex items-center justify-center w-fit ${typography.headingSmall}`}>
           Explore the BitRobot Network
         </h1>
       </header>

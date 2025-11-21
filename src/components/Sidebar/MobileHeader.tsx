@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { MainNavigation } from "./MainNavigation";
 import { useHashNavigation } from "../../hooks/useHashNavigation";
+import { typography } from "../../utils/classNames";
 
 export const MobileHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const currentHash = useHashNavigation();
 
-  // Close menu when hash changes
   useEffect(() => {
     setIsMenuOpen(false);
   }, [currentHash]);
@@ -72,9 +72,9 @@ export const MobileHeader = () => {
               alt="User avatar"
               src="/assets/img/frame-6@2x.png"
             />
-            <span className="relative flex items-center justify-center w-fit font-paragraph-small font-[number:var(--paragraph-small-font-weight)] text-gray-2 text-[length:var(--paragraph-small-font-size)] tracking-[var(--paragraph-small-letter-spacing)] leading-[var(--paragraph-small-line-height)] whitespace-nowrap [font-style:var(--paragraph-small-font-style)]">
-              username123
-            </span>
+          <span className={`relative flex items-center justify-center w-fit ${typography.paragraphSmall} whitespace-nowrap`}>
+            username123
+          </span>
           </button>
           <img
             className="w-5 h-5 relative aspect-[1]"

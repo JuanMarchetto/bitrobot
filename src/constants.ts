@@ -1,4 +1,3 @@
-// Navigation items
 export interface MainNavItem {
   id: string;
   icon: string;
@@ -57,7 +56,6 @@ export const resourceItems: ResourceItem[] = [
   },
 ];
 
-// Main content section constants
 export interface CarouselSlide {
   icon: string;
   title: string;

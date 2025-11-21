@@ -2,6 +2,7 @@ import { MainContentSection } from "./sections/MainContentSection";
 import { SidebarSection } from "./sections/SidebarSection";
 import { MobileHeader } from "../../components/Sidebar/MobileHeader";
 import { ErrorBoundary } from "../../components/ErrorBoundary";
+import { typography } from "../../utils/classNames";
 
 export const DashboardFull = () => {
   return (
@@ -28,7 +29,7 @@ export const DashboardFull = () => {
             src="/assets/img/frame-6@2x.png"
           />
 
-          <span className="relative flex items-center justify-center w-fit font-paragraph-small font-[number:var(--paragraph-small-font-weight)] text-gray-2 text-[length:var(--paragraph-small-font-size)] tracking-[var(--paragraph-small-letter-spacing)] leading-[var(--paragraph-small-line-height)] whitespace-nowrap [font-style:var(--paragraph-small-font-style)]">
+          <span className={`relative flex items-center justify-center w-fit ${typography.paragraphSmall} whitespace-nowrap`}>
             username123
           </span>
 

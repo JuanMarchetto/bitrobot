@@ -1,4 +1,6 @@
 import { mainNavItems, MainNavItem } from "../../constants";
+import { styles, typography } from "../../utils/classNames";
+import { cn } from "../../utils/classNames";
 
 interface MainNavigationProps {
   currentHash: string;
@@ -22,9 +24,10 @@ export const MainNavigation = ({ currentHash }: MainNavigationProps) => {
           <a
             key={item.id}
             href={`#${item.id}`}
-            className={`flex items-center ${
+            className={cn(
+              styles.navLink,
               isActive ? "justify-between" : "gap-3"
-            } px-1 py-3 relative self-stretch w-full flex-[0_0_auto] border-b [border-bottom-style:solid] border-[#eeecfe] no-underline hover:bg-[#f9f9f9] transition-colors`}
+            )}
             aria-current={isActive ? "page" : undefined}
           >
             <div className="inline-flex items-center gap-3 relative flex-[0_0_auto]">
@@ -35,9 +38,11 @@ export const MainNavigation = ({ currentHash }: MainNavigationProps) => {
                 aria-hidden="true"
               />
               <span
-                className={`relative flex items-center justify-center w-fit font-caption-large font-[number:var(--caption-large-font-weight)] text-[length:var(--caption-large-font-size)] tracking-[var(--caption-large-letter-spacing)] leading-[var(--caption-large-line-height)] whitespace-nowrap [font-style:var(--caption-large-font-style)] ${
+                className={cn(
+                  "relative flex items-center justify-center w-fit",
+                  typography.captionLarge,
                   isActive ? "text-[#5d4bff]" : "text-gray-2"
-                }`}
+                )}
               >
                 {item.label}
               </span>

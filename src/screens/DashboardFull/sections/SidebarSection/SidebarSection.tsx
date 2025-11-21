@@ -2,6 +2,8 @@ import { resourceItems, ResourceItem } from "../../../../constants";
 import { LogoHeader } from "../../../../components/Sidebar/LogoHeader";
 import { MainNavigation } from "../../../../components/Sidebar/MainNavigation";
 import { useHashNavigation } from "../../../../hooks/useHashNavigation";
+import { SectionHeader } from "../../../../components/UI/SectionHeader";
+import { styles, typography } from "../../../../utils/classNames";
 
 interface IconProps {
   iconPath: string;
@@ -154,11 +156,7 @@ export const SidebarSection = () => {
 
         <div className="flex flex-col items-start gap-4 px-4 py-0 relative self-stretch w-full flex-[0_0_auto]">
           <div className="flex flex-col items-start gap-4 relative self-stretch w-full flex-[0_0_auto]">
-            <div className="inline-flex items-center justify-center gap-2 px-3 py-2 relative flex-[0_0_auto] bg-[#eeecfe] rounded-lg shadow-shadow-1">
-              <h2 className="relative flex items-center justify-center w-fit mt-[-1.00px] font-caption-medium font-[number:var(--caption-medium-font-weight)] text-[#5d4bff] text-[length:var(--caption-medium-font-size)] tracking-[var(--caption-medium-letter-spacing)] leading-[var(--caption-medium-line-height)] whitespace-nowrap [font-style:var(--caption-medium-font-style)]">
-                RESOURCES
-              </h2>
-            </div>
+            <SectionHeader label="RESOURCES" />
 
             <nav
               className="flex flex-col items-start relative self-stretch w-full flex-[0_0_auto]"
@@ -168,7 +166,7 @@ export const SidebarSection = () => {
                 <a
                   key={item.id}
                   href={`#${item.id}`}
-                  className="group flex items-center justify-between px-1 py-3 relative self-stretch w-full flex-[0_0_auto] border-b [border-bottom-style:solid] border-[#eeecfe] no-underline hover:bg-[#f9f9f9] transition-colors"
+                  className={`group ${styles.navLink} justify-between`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -176,7 +174,7 @@ export const SidebarSection = () => {
                     <div className="relative w-5 h-5 aspect-[1] text-gray-2 group-hover:text-[#5d4bff] transition-colors duration-200">
                       <Icon iconPath={item.icon} className="w-full h-full" />
                     </div>
-                    <span className="relative flex items-center justify-center w-fit font-caption-large font-[number:var(--caption-large-font-weight)] text-gray-2 group-hover:text-[#5d4bff] text-[length:var(--caption-large-font-size)] tracking-[var(--caption-large-letter-spacing)] leading-[var(--caption-large-line-height)] whitespace-nowrap [font-style:var(--caption-large-font-style)] transition-colors duration-200">
+                    <span className={`relative flex items-center justify-center w-fit ${typography.captionLarge} text-gray-2 group-hover:text-[#5d4bff] transition-colors duration-200`}>
                       {item.label}
                     </span>
                   </div>
@@ -204,7 +202,7 @@ export const SidebarSection = () => {
                 />
                 <span
                   id="earn-points-heading"
-                  className="relative flex items-center justify-center w-fit font-caption-medium font-[number:var(--caption-medium-font-weight)] text-goldprimary text-[length:var(--caption-medium-font-size)] tracking-[var(--caption-medium-letter-spacing)] leading-[var(--caption-medium-line-height)] whitespace-nowrap [font-style:var(--caption-medium-font-style)]"
+                  className={`relative flex items-center justify-center w-fit ${typography.captionMedium} text-goldprimary`}
                 >
                   EARN PTS
                 </span>
