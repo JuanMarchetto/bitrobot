@@ -1,24 +1,15 @@
 import { useState, useEffect } from "react";
 import { MainNavigation } from "./MainNavigation";
+import { useHashNavigation } from "../../hooks/useHashNavigation";
 
 export const MobileHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentHash, setCurrentHash] = useState<string>(() => {
-    return typeof window !== "undefined" ? window.location.hash.slice(1) : "";
-  });
+  const currentHash = useHashNavigation();
 
+  // Close menu when hash changes
   useEffect(() => {
-    const handleHashChange = () => {
-      setCurrentHash(window.location.hash.slice(1));
-      setIsMenuOpen(false); // Close menu when navigating
-    };
-    window.addEventListener("hashchange", handleHashChange);
-    handleHashChange();
-
-    return () => {
-      window.removeEventListener("hashchange", handleHashChange);
-    };
-  }, []);
+    setIsMenuOpen(false);
+  }, [currentHash]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

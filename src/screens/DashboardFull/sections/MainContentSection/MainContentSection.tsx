@@ -1,25 +1,11 @@
-import { useState, useEffect } from "react";
 import { DiscoverCarousel } from "../../../../components/MainContentSection/DiscoverCarousel";
 import { EarningsSection } from "../../../../components/MainContentSection/EarningsSection";
 import { EarningsHistory } from "../../../../components/MainContentSection/EarningsHistory";
 import { Leaderboard } from "../../../../components/MainContentSection/Leaderboard";
+import { useHashNavigation } from "../../../../hooks/useHashNavigation";
 
 export const MainContentSection = () => {
-  const [currentHash, setCurrentHash] = useState<string>(() => {
-    return typeof window !== "undefined" ? window.location.hash.slice(1) : "";
-  });
-
-  useEffect(() => {
-    const handleHashChange = () => {
-      setCurrentHash(window.location.hash.slice(1));
-    };
-    window.addEventListener("hashchange", handleHashChange);
-    handleHashChange();
-
-    return () => {
-      window.removeEventListener("hashchange", handleHashChange);
-    };
-  }, []);
+  const currentHash = useHashNavigation();
 
   const shouldShowLeaderboard = currentHash !== "profile" && currentHash !== "dashboard";
 

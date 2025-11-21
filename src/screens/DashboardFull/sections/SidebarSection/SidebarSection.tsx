@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
 import { resourceItems, ResourceItem } from "../../../../constants";
 import { LogoHeader } from "../../../../components/Sidebar/LogoHeader";
 import { MainNavigation } from "../../../../components/Sidebar/MainNavigation";
+import { useHashNavigation } from "../../../../hooks/useHashNavigation";
 
 interface IconProps {
   iconPath: string;
@@ -138,21 +138,7 @@ const Icon = ({ iconPath, className = "" }: IconProps) => {
 };
 
 export const SidebarSection = () => {
-  const [currentHash, setCurrentHash] = useState<string>(() => {
-    return typeof window !== "undefined" ? window.location.hash.slice(1) : "";
-  });
-
-  useEffect(() => {
-    const handleHashChange = () => {
-      setCurrentHash(window.location.hash.slice(1));
-    };
-    window.addEventListener("hashchange", handleHashChange);
-    handleHashChange();
-
-    return () => {
-      window.removeEventListener("hashchange", handleHashChange);
-    };
-  }, []);
+  const currentHash = useHashNavigation();
 
 
   return (
