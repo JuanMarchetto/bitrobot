@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { mainNavItems, resourceItems, MainNavItem, ResourceItem } from "../../../../constants";
+import { resourceItems, ResourceItem } from "../../../../constants";
+import { LogoHeader } from "../../../../components/Sidebar/LogoHeader";
+import { MainNavigation } from "../../../../components/Sidebar/MainNavigation";
 
-// Icon SVG components that can change color on hover
 interface IconProps {
   iconPath: string;
   className?: string;
@@ -125,7 +126,6 @@ const Icon = ({ iconPath, className = "" }: IconProps) => {
     case "info-circle":
       return <InfoCircleIcon className={className} />;
     default:
-      // Fallback to img if SVG not found in our mapping
       return (
         <img
           className={className}
@@ -139,7 +139,6 @@ const Icon = ({ iconPath, className = "" }: IconProps) => {
 
 export const SidebarSection = () => {
   const [currentHash, setCurrentHash] = useState<string>(() => {
-    // Get initial hash (without the #)
     return typeof window !== "undefined" ? window.location.hash.slice(1) : "";
   });
 
@@ -147,11 +146,7 @@ export const SidebarSection = () => {
     const handleHashChange = () => {
       setCurrentHash(window.location.hash.slice(1));
     };
-
-    // Listen for hash changes
     window.addEventListener("hashchange", handleHashChange);
-    
-    // Also check on mount in case hash is already set
     handleHashChange();
 
     return () => {
@@ -162,69 +157,14 @@ export const SidebarSection = () => {
 
   return (
     <aside
-      className="hidden lg:flex absolute top-0 left-0 w-full lg:w-[264px] h-auto lg:h-[832px] flex-col justify-between bg-[#fdfdfd]"
+      className="hidden xl:flex absolute top-0 left-0 w-full lg:w-[264px] bottom-0 flex-col justify-between bg-[#fdfdfd]"
       role="navigation"
       aria-label="Main navigation"
     >
-      <header className="flex w-full lg:w-[264px] h-[66px] relative flex-col items-start gap-2 pt-4 lg:pt-6 pb-2 px-4 lg:px-6">
-        <div className="flex items-center gap-1 relative self-stretch w-full flex-[0_0_auto]">
-          <img
-            className="relative w-[50px] h-[50px] mt-[-6.00px] mb-[-10.00px] ml-[-8.00px] aspect-[1]"
-            alt="BitRobot Icon"
-            src="/assets/img/icon.svg"
-          />
-          <div className="inline-flex flex-col items-center justify-center gap-2 px-3 py-0 relative self-stretch flex-[0_0_auto] bg-white rounded-lg border border-solid border-stroke shadow-[0px_2px_8px_#00000012]">
-            <div className="relative w-[85.09px] h-[18px]">
-              <img
-                className="absolute w-[98.97%] h-[99.27%] top-0 left-0"
-                alt="BitRobot"
-                src="/assets/img/vector.svg"
-              />
-            </div>
-          </div>
-        </div>
-      </header>
+      <LogoHeader />
 
-      <div className="flex w-full lg:w-[264px] h-auto lg:h-[758px] relative flex-col items-start justify-between pt-2 pb-6 lg:pb-10 px-2 border-r [border-right-style:solid] border-[#eeecfe]">
-        <nav
-          className="flex flex-col items-start px-4 py-0 relative self-stretch w-full flex-[0_0_auto]"
-          aria-label="Primary navigation"
-        >
-          {mainNavItems.map((item: MainNavItem) => {
-            // Check if current hash matches any nav item
-            const hashMatchesItem = mainNavItems.some((navItem: MainNavItem) => currentHash === navItem.id);
-            // If no hash matches or hash is empty, default to "contribute"
-            const isActive = currentHash === item.id || ((!currentHash || !hashMatchesItem) && item.id === "contribute");
-            return (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className={`flex items-center ${isActive ? "justify-between" : "gap-3"} px-1 py-3 relative self-stretch w-full flex-[0_0_auto] border-b [border-bottom-style:solid] border-[#eeecfe] no-underline hover:bg-[#f9f9f9] transition-colors`}
-                aria-current={isActive ? "page" : undefined}
-              >
-                <div className="inline-flex items-center gap-3 relative flex-[0_0_auto]">
-                  <img
-                    className="relative w-5 h-5 aspect-[1]"
-                    alt=""
-                    src={item.icon}
-                    aria-hidden="true"
-                  />
-                  <span
-                    className={`relative flex items-center justify-center w-fit font-caption-large font-[number:var(--caption-large-font-weight)] text-[length:var(--caption-large-font-size)] tracking-[var(--caption-large-letter-spacing)] leading-[var(--caption-large-line-height)] whitespace-nowrap [font-style:var(--caption-large-font-style)] ${isActive ? "text-[#5d4bff]" : "text-gray-2"}`}
-                  >
-                    {item.label}
-                  </span>
-                </div>
-                {isActive && (
-                  <div
-                    className="relative w-2.5 h-2.5 bg-positive rounded-[5px] shadow-[0px_0px_5px_4px_#00c33a33]"
-                    aria-label="Active indicator"
-                  />
-                )}
-              </a>
-            );
-          })}
-        </nav>
+      <div className="flex w-full lg:w-[264px] flex-1 relative flex-col items-start pt-2 pb-6 lg:pb-10 px-2 border-r [border-right-style:solid] border-[#eeecfe] min-h-0 gap-4 lg:gap-6">
+        <MainNavigation currentHash={currentHash} />
 
         <div className="flex flex-col items-start gap-4 px-4 py-0 relative self-stretch w-full flex-[0_0_auto]">
           <div className="flex flex-col items-start gap-4 relative self-stretch w-full flex-[0_0_auto]">

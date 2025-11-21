@@ -17,7 +17,7 @@ export const DiscoverCarousel = () => {
   };
 
   return (
-    <section className="flex flex-col items-start gap-4 lg:gap-6 relative self-stretch w-full flex-[0_0_auto]">
+    <section className="flex flex-col items-start gap-4 lg:gap-6 relative self-stretch w-full flex-[0_0_auto] min-w-0 max-w-full">
       <header className="inline-flex flex-col items-start gap-4 relative flex-[0_0_auto]">
         <div className="inline-flex items-center justify-center gap-2 px-3 py-2 relative flex-[0_0_auto] bg-[#eeecfe] rounded-lg shadow-shadow-1">
           <span className="items-center justify-center w-fit mt-[-1.00px] font-caption-medium font-[number:var(--caption-medium-font-weight)] text-[#5d4bff] text-[length:var(--caption-medium-font-size)] tracking-[var(--caption-medium-letter-spacing)] leading-[var(--caption-medium-line-height)] whitespace-nowrap relative flex [font-style:var(--caption-medium-font-style)]">
@@ -30,8 +30,8 @@ export const DiscoverCarousel = () => {
         </h1>
       </header>
 
-      <div className="flex flex-col items-center gap-3 lg:gap-4 flex-[0_0_auto] relative self-stretch w-full">
-        <div className="flex items-center justify-center gap-2 lg:gap-4 relative self-stretch w-full flex-[0_0_auto]">
+      <div className="flex flex-col items-center gap-3 lg:gap-4 flex-[0_0_auto] relative self-stretch w-full max-w-full">
+        <div className="flex items-center justify-center gap-2 lg:gap-4 relative self-stretch w-full flex-[0_0_auto] max-w-full">
           <button
             onClick={handlePrevSlide}
             className="relative w-5 h-5 lg:w-6 lg:h-6 aspect-[1] flex-shrink-0"
@@ -43,7 +43,7 @@ export const DiscoverCarousel = () => {
             />
           </button>
 
-          <div className="relative w-full max-w-[880px] overflow-hidden">
+          <div className="relative w-full max-w-full overflow-hidden flex-1 min-w-0">
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{
@@ -54,7 +54,7 @@ export const DiscoverCarousel = () => {
                 <article
                   key={index}
                   className="w-full h-[200px] sm:h-[220px] lg:h-[246px] bg-[#fdfdfd] rounded-xl lg:rounded-2xl overflow-hidden border border-solid border-[#eeecfe] relative flex-shrink-0"
-                  style={{ minWidth: "100%" }}
+                  style={{ flex: '0 0 100%' }}
                 >
                 <img
                   className="absolute left-0 bottom-[-409px] w-full h-[200px] sm:h-[220px] lg:h-[246px]"
@@ -68,7 +68,7 @@ export const DiscoverCarousel = () => {
                   src={slide.bgImage2}
                 />
 
-                <div className="flex-col w-full max-w-[440px] gap-2 lg:gap-3 absolute left-3 lg:left-4 bottom-3 lg:bottom-4 flex items-start pr-3 lg:pr-0">
+                <div className="flex-col w-full max-w-[calc(100%-24px)] lg:max-w-[440px] gap-2 lg:gap-3 absolute left-3 lg:left-4 bottom-3 lg:bottom-4 flex items-start pr-3 lg:pr-0">
                   <img
                     className="relative w-6 h-6 lg:w-8 lg:h-8"
                     alt={slide.title}

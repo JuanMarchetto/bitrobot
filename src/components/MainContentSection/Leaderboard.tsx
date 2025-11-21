@@ -32,7 +32,7 @@ export const Leaderboard = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="flex flex-col w-full items-start relative flex-[0_0_auto]">
+    <section className="flex flex-col w-full items-start relative flex-[0_0_auto] min-w-0 max-w-full">
       <header className="flex flex-col items-start gap-3 lg:gap-4 relative self-stretch w-full flex-[0_0_auto]">
         <div className="inline-flex items-center justify-center gap-2 px-3 py-2 relative flex-[0_0_auto] bg-[#eeecfe] rounded-lg shadow-shadow-1">
           <span className="relative flex items-center justify-center w-fit mt-[-1.00px] font-caption-medium font-[number:var(--caption-medium-font-weight)] text-[#5d4bff] text-[length:var(--caption-medium-font-size)] tracking-[var(--caption-medium-letter-spacing)] leading-[var(--caption-medium-line-height)] whitespace-nowrap [font-style:var(--caption-medium-font-style)]">
@@ -65,7 +65,7 @@ export const Leaderboard = () => {
         </div>
       </header>
 
-      <div className="w-full overflow-x-auto">
+      <div className="w-full max-w-full overflow-x-auto">
         <div className="min-w-[600px]">
           {leaderboardData.map((entry, index) => (
             <div
