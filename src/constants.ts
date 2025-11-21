@@ -250,3 +250,16 @@ export const leaderboardData: LeaderboardEntry[] = [
 ];
 
 export const carouselIndicators = Array.from({ length: carouselSlides.length }, (_, i) => i);
+
+export interface ChartGridLineConfig {
+  label: string;
+  lineImage: string;
+}
+
+export const chartGridLines: ChartGridLineConfig[] = [
+  { label: "1.1K", lineImage: "/assets/img/line-112.svg" },
+  { label: "1K", lineImage: "/assets/img/line-112-1.svg" },
+  { label: "900", lineImage: "/assets/img/line-112-4.svg" },
+  { label: "800", lineImage: "/assets/img/line-112-4.svg" },
+  { label: "700", lineImage: "/assets/img/line-112-4.svg" },
+];

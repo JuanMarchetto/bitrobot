@@ -1,4 +1,5 @@
-import { chartData } from "../../constants";
+import { chartData, chartGridLines } from "../../constants";
+import { ChartGridLine } from "./ChartGridLine";
 
 export const EarningsHistory = () => {
   return (
@@ -13,65 +14,9 @@ export const EarningsHistory = () => {
 
       <div className="relative flex-1 self-stretch w-full min-w-0 overflow-hidden">
         <div className="flex flex-col w-full max-w-full h-[158px] items-start justify-between absolute top-[37px] left-0 right-0">
-          <div className="flex items-center gap-[8.36px] relative self-stretch w-full flex-[0_0_auto]">
-            <span className="relative flex items-center justify-center w-fit mt-[-0.52px] font-caption-medium font-[number:var(--caption-medium-font-weight)] text-primary text-[length:var(--caption-medium-font-size)] tracking-[var(--caption-medium-letter-spacing)] leading-[var(--caption-medium-line-height)] whitespace-nowrap [font-style:var(--caption-medium-font-style)]">
-              1.1K
-            </span>
-
-            <img
-              className="relative flex-1 grow h-px"
-              alt="Line"
-              src="/assets/img/line-112.svg"
-            />
-          </div>
-
-          <div className="flex items-center gap-[8.36px] relative self-stretch w-full flex-[0_0_auto]">
-            <span className="relative flex items-center justify-center w-fit mt-[-0.52px] font-caption-medium font-[number:var(--caption-medium-font-weight)] text-primary text-[length:var(--caption-medium-font-size)] tracking-[var(--caption-medium-letter-spacing)] leading-[var(--caption-medium-line-height)] whitespace-nowrap [font-style:var(--caption-medium-font-style)]">
-              1K
-            </span>
-
-            <img
-              className="relative flex-1 grow h-px"
-              alt="Line"
-              src="/assets/img/line-112-1.svg"
-            />
-          </div>
-
-          <div className="flex items-center gap-[8.36px] relative self-stretch w-full flex-[0_0_auto]">
-            <span className="w-fit mt-[-0.52px] font-caption-medium font-[number:var(--caption-medium-font-weight)] text-primary text-[length:var(--caption-medium-font-size)] tracking-[var(--caption-medium-letter-spacing)] whitespace-nowrap relative flex items-center justify-center leading-[var(--caption-medium-line-height)] [font-style:var(--caption-medium-font-style)]">
-              900
-            </span>
-
-            <img
-              className="relative flex-1 grow h-px"
-              alt="Line"
-              src="/assets/img/line-112-4.svg"
-            />
-          </div>
-
-          <div className="flex items-center gap-[8.36px] relative self-stretch w-full flex-[0_0_auto]">
-            <span className="w-fit mt-[-0.52px] font-caption-medium font-[number:var(--caption-medium-font-weight)] text-primary text-[length:var(--caption-medium-font-size)] tracking-[var(--caption-medium-letter-spacing)] whitespace-nowrap relative flex items-center justify-center leading-[var(--caption-medium-line-height)] [font-style:var(--caption-medium-font-style)]">
-              800
-            </span>
-
-            <img
-              className="relative flex-1 grow h-px"
-              alt="Line"
-              src="/assets/img/line-112-4.svg"
-            />
-          </div>
-
-          <div className="flex items-center gap-[8.36px] relative self-stretch w-full flex-[0_0_auto]">
-            <span className="w-fit mt-[-0.52px] font-caption-medium font-[number:var(--caption-medium-font-weight)] text-primary text-[length:var(--caption-medium-font-size)] tracking-[var(--caption-medium-letter-spacing)] whitespace-nowrap relative flex items-center justify-center leading-[var(--caption-medium-line-height)] [font-style:var(--caption-medium-font-style)]">
-              700
-            </span>
-
-            <img
-              className="relative flex-1 grow h-px"
-              alt="Line"
-              src="/assets/img/line-112-4.svg"
-            />
-          </div>
+          {chartGridLines.map((gridLine, index) => (
+            <ChartGridLine key={index} label={gridLine.label} lineImage={gridLine.lineImage} />
+          ))}
         </div>
 
         <div className="flex w-[calc(100%-86px)] lg:w-[405px] max-w-[calc(100%-86px)] h-[250px] items-end gap-2 absolute top-0 left-[43px] overflow-hidden">
