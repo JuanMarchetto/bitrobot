@@ -3,6 +3,7 @@ import { EarningsSection } from "../../../../components/MainContentSection/Earni
 import { EarningsHistory } from "../../../../components/MainContentSection/EarningsHistory";
 import { Leaderboard } from "../../../../components/MainContentSection/Leaderboard";
 import { useHashNavigation } from "../../../../hooks/useHashNavigation";
+import { ErrorBoundary } from "../../../../components/ErrorBoundary";
 
 export const MainContentSection = () => {
   const currentHash = useHashNavigation();
@@ -11,7 +12,9 @@ export const MainContentSection = () => {
 
   return (
     <main className="flex flex-col w-full lg:w-[960px] items-start gap-6 lg:gap-8 lg:absolute lg:top-[58px] lg:left-0 xl:left-[264px] px-4 lg:px-0 mt-20 lg:mt-0 xl:mt-0 max-w-full min-w-0">
-      <DiscoverCarousel />
+      <ErrorBoundary>
+        <DiscoverCarousel />
+      </ErrorBoundary>
       
       <section className="flex flex-col items-start gap-4 lg:gap-6 relative self-stretch w-full flex-[0_0_auto] min-w-0 max-w-full">
         <header className="flex items-start gap-6 lg:gap-10 relative self-stretch w-full flex-[0_0_auto] min-w-0">
@@ -23,19 +26,29 @@ export const MainContentSection = () => {
         </header>
 
         <div className="hidden xl:flex gap-3 lg:gap-4 relative self-stretch w-full flex-row items-stretch min-w-0 max-w-full">
-          <EarningsSection />
-          <EarningsHistory />
+          <ErrorBoundary>
+            <EarningsSection />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <EarningsHistory />
+          </ErrorBoundary>
         </div>
 
         <div className="flex xl:hidden flex-col items-start gap-3 lg:gap-4 relative self-stretch w-full min-w-0 max-w-full">
-          <EarningsSection />
-          <EarningsHistory />
+          <ErrorBoundary>
+            <EarningsSection />
+          </ErrorBoundary>
+          <ErrorBoundary>
+            <EarningsHistory />
+          </ErrorBoundary>
         </div>
       </section>
 
       {shouldShowLeaderboard && (
         <div className="w-full">
-          <Leaderboard />
+          <ErrorBoundary>
+            <Leaderboard />
+          </ErrorBoundary>
         </div>
       )}
     </main>
