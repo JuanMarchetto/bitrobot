@@ -33,10 +33,14 @@ export const MainContentSection = () => {
 
         <div className="flex xl:hidden flex-col items-start gap-3 lg:gap-4 relative self-stretch w-full min-w-0 max-w-full">
           <ErrorBoundary>
-            <EarningsSection />
+            <div className="w-full sm:max-w-[500px] sm:mx-auto">
+              <EarningsSection />
+            </div>
           </ErrorBoundary>
           <ErrorBoundary>
-            <EarningsHistory />
+            <div className="w-full sm:max-w-[500px] sm:mx-auto">
+              <EarningsHistory />
+            </div>
           </ErrorBoundary>
         </div>
       </section>
