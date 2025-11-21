@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { MainNavigation } from "./MainNavigation";
 import { useHashNavigation } from "../../hooks/useHashNavigation";
-import { typography } from "../../utils/classNames";
+import { UsernameHeader } from "../UI/UsernameHeader";
 
 export const MobileHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -62,20 +62,7 @@ export const MobileHeader = () => {
         </div>
 
         <div className="flex-shrink-0 inline-flex h-[34px] items-center justify-center gap-3 px-3 py-1 bg-[#fdfdfd] rounded-lg border border-solid border-[#eeecfe] shadow-[0px_2px_8px_#00000012]">
-          <button
-            className="inline-flex items-center gap-2 relative flex-[0_0_auto] cursor-pointer"
-            aria-label="User menu"
-            type="button"
-          >
-            <img
-              className="relative w-5 h-5 rounded-[999px] aspect-[1]"
-              alt="User avatar"
-              src="/assets/img/frame-6@2x.png"
-            />
-          <span className={`relative flex items-center justify-center w-fit ${typography.paragraphSmall} whitespace-nowrap`}>
-            username123
-          </span>
-          </button>
+          <UsernameHeader gap="gap-2" includeChevron={false} />
           <img
             className="w-5 h-5 relative aspect-[1]"
             alt="Chevron down"
